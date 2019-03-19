@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<meta charset="UTF-8">
+  	<title>Challenge 3</title>
+	<link href="https://fonts.googleapis.com/css?family=Allan" rel="stylesheet">
+	
+	<style>
+    .errorMsg { 
+        /*font: Use a cool Google font*/
+      	color: red;
+		font-family: "Allan";
+      	display: none; 
+		}
+    </style>
+    
+    <script>
+    function checkForm(){
+		console.log("Yeppers")
+		let name = document.querySelector("#name").value;
+		let addr = document.querySelector("#addr").value;		
+		
+		if (name == "") {
+			document.querySelector("#nameError").style.display = "block";
+		}
+		else {
+			document.querySelector("#nameError").style.display = "none";
+		}
+
+		if (addr == "") {
+			document.querySelector("#addressError").style.display = "block";
+		}
+		else {
+			document.querySelector("#addressError").style.display = "none";
+		}
+		
+		if (name !== "" && addr !== "") {
+			console.log("Submit!");
+			return true;
+		}
+		else {
+			console.log("Don't Submit!");
+			return false;
+		}
+		
+		//}
+      // Write a function that displays the appropriate error message(s) if a field is left blank.  Make sure the form action is not performed if either field is blank.
+    }  
+    </script>
+</head>
+
+<body>
+    <h1>Challenge 3</h1>
+	<form action="challenge4.html" onsubmit="return checkForm()">
+		<fieldset>
+       	<legend>Personal details</legend>
+          <label for="name">Full name: </label>
+            <input type="text" name="fullname" id="name"><br/>
+            <p class="errorMsg" id="nameError">Please enter your name above!</p>
+
+          <label for ="streetaddr"></label>
+            Street Address:
+            <input type="text" name="addr" id="addr">
+            <p class="errorMsg" id="addressError">Please enter your street address!</p>
+        </fieldset>
+        <input type="submit" value="Submit it!"> 
+    </form>
+</body>
+</html>
